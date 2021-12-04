@@ -43,22 +43,29 @@
 <body>
   <div class="overlay">
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-md navbar-dark" style="border-bottom: 1px solid #DFDFDF;">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">Instagram</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Home</a>
+            <span>
+              <a class="navbar-brand text-dark ml-5" href="/">Instagram</a>
+            </span>
+            <div class="">
+              <form class="navbar-form" role="search" action="{#{% url 'search' %}#}">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search" name="search_user">
+                </div>
+              </form>
             </div>
-            <!-- Navbar Right Side -->
-            
+            <span>
+              <i class="fa fa-home fa-lg mr-3"></i>
+              <i class="fa fa-plus-square fa-lg mr-3"></i>
+              <i class="fa fa-compass fa-lg compass mr-3"></i>
+              <i class="fa fa-user-circle fa-lg prof mr-5"></i>
+            </span>
           </div>
         </div>
       </nav>
     </header>
+    
     <div class="container">
       {% if messages %}
           {% for message in messages %}

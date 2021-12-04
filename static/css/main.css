@@ -1,5 +1,17 @@
-h1{
+/* h1{
   color:green;
+} */
+
+/* nav {
+  border-bottom: 1px solid gray;
+} */
+
+.prof {
+  color: #dfdfdf;
+}
+
+.compass {
+  color: #565656;
 }
 .form-text, .asteriskField{
   display:none;
