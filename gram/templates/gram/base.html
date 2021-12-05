@@ -43,13 +43,13 @@
 <body>
   <div class="overlay">
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark" style="border-bottom: 1px solid #DFDFDF;">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="border-bottom: 1px solid #DFDFDF;">
         <div class="container">
-            <span>
-              <a class="navbar-brand text-dark ml-5" href="/">Instagram</a>
+            <span> 
+              <a class="navbar-brand text-dark ml-5" href="{% url 'index' %}"><img src="{% static 'images/header.png' %}" class="D-block mx-auto"></a>
             </span>
             <div class="">
-              <form class="navbar-form" role="search" action="{#{% url 'search' %}#}">
+              <form class="navbar-form" role="search" action="{% url 'search' %}">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="Search" name="search_user">
                 </div>
