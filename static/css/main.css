@@ -19,6 +19,9 @@
 .reg{
   background-color:#f9f9f9;
 }
+.ct {
+  border-bottom: 1px solid #dfdfdf;
+}
 .alert{
   margin:0;
   padding:0;
@@ -122,6 +125,7 @@ body{
 }
 .user{
   color:black;
+  padding-top: 100px;
 }
 .user a:hover{
   text-decoration:none;
