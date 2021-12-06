@@ -147,7 +147,7 @@ AUTH_PROFILE_MODULE = 'gram.UserProfile'
 # adding config
 cloudinary.config( 
   cloud_name = config('cloud_name'), 
-  api_key = config('api_key'), 
+  api_key = '457573822868972', 
   api_secret = config('api_secret') 
 )
 
