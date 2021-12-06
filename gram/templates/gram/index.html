@@ -1,14 +1,14 @@
 {%extends 'gram/base.html'%}
-{% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% load static %}
 {#{{block.super}}#}
 <div class="container" style="margin-top:7%;">
   <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-7">
           <div class="row">
-              <button class="btn btn-sm btn-outline-primary ml-4 mb-3" data-toggle="modal" data-target="#imageUpload">
+              <button class="btn btn-sm btn-outline-primary ml-3 mb-3" data-toggle="modal" data-target="#imageUpload">
                   Post Image
               </button>
               <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog"
@@ -17,9 +17,6 @@
                       <div class="modal-content">
                           <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLongTitle">Image Post</h5>
-                              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                              </button> -->
                           </div>
                           <div class="modal-body">
                               <form action="" method="post" enctype="multipart/form-data" novalidate>
@@ -38,22 +35,26 @@
 
           {% for image in images %}
           <div class="card mb-4">
-              <div class="card-title ct">
-                  <img src="{{image.user.profile_picture.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
-                       alt="{{image.user.user.username}}" width="35" height="35">
-                  <a href="{% url 'user_profile' image.user.user.username  %}" class="user">{{image.user.user.username|title}}</a>
+              <div class="d-flex justify-content-between">
+                <div class="card-title ct">
+                    <img src="{{image.user.profile_picture.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
+                         alt="{{image.user.user.username}}" width="35" height="35">
+                    <a href="{% url 'user_profile' image.user.user.username  %}" class="user">{{image.user.user.username|title}}</a>
+                </div>
+                <div class="mr-3 mt-2">
+                    <a class="dot" href="{% url 'user_profile' image.user.user.username  %}">...</a>
+                </div>
               </div>
+              
               <div class="card-body mb-4">
                   <a href="{% url 'comment' image.id %}"><div class="card-text"style="background-image:url({{ image.image.url }});background-size:contain;position:sticky;">
                       <img src="{{image.image.url}}" class="card-img" width="100%"/>
                   </div></a>
               </div>
               <div class="iconic ml-2">
-                  <button class="btn btn-sm" type="submit" name="image_id" value="{{image.id}}">
-                      <a href="{% url 'comment' image.id %}"><i class="far fa-heart hearticon mx-auto"></i></a>
-                  </button>
-                  <button class="btn btn-sm" type="submit"><a href="{% url 'comment' image.id %}"><i class="far fa-comment hearticon mx-auto"></i>
-                  </a></button>
+                  <!-- <button class="btn btn-sm" type="submit" name="image_id" value="{{image.id}}"> -->
+                      <a href="{% url 'comment' image.id %}"><i class="far fa-heart hearticon mx-2"></i></a>
+                      <a href="{% url 'comment' image.id %}"><i class="far fa-comment hearticon mx-auto"></i></a>
               </div>
               <span class="ml-4 mb-1"><strong>{{image.likes.count}} like{{image.likes.count|pluralize}}</strong></span>
               <span class="text-secondary ml-4 viewall"><a href="{% url 'comment' image.id %}">view all {{image.comments.count}} comment{{image.comments.count|pluralize}}</a></span>
@@ -67,6 +68,10 @@
                   {% empty %}
                   {% endfor %}
                   <p class="text-secondary ml-4">{{image.created|timesince}}</p>
+              </div>
+              <div class="d-flex justify-content-between ft">
+                <p class="ml-3 my-auto p-3 pa text-muted">Add a comment...</p>
+                <a class="text-muted posta" href="{% url 'comment' image.id %}"><b><p class="my-auto pa p-3 pr-2 post">Post</p></b></a>
               </div>
           </div>
           {% endfor %}
