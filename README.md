@@ -19,6 +19,17 @@ This is a clone of the website for Instagram photo application.
 * Follow other users and see their pictures on your timeline.
 * Like a picture and leave a comment on it.
 
+## Behaviour Driven Development
+| Behaviour | Input | Output |
+| :---------------- | :---------------: | ------------------: |
+| Load the application | On application load | Display of Login Form |
+| Create account by Sign Up | Enter email, username and password| Redirect to login|
+| Login selected | Enter username and password you signed up with| Redirect to home page|
+| Post image button selected | Post | Input details in a form and upload |
+| Click the comment post button | CLick | Redirected to page wih all the comments made on the post |
+| Click the user profile icon | Select Profile | Redirected to profile page where you can edit profile |
+| Click the user profile icon | Select Logout | Logout and redirected to login page |
+
 # Setup and Installation
 #### Cloning the repository
 * Open Terminal:
