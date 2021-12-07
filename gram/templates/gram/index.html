@@ -47,9 +47,10 @@
               </div>
               
               <div class="card-body mb-4">
-                  <a href="{% url 'comment' image.id %}"><div class="card-text"style="background-image:url({{ image.image.url }});background-size:contain;position:sticky;">
-                      <img src="{{image.image.url}}" class="card-img" width="100%"/>
-                  </div></a>
+                  <a href="{% url 'comment' image.id %}">
+                      <div class="card-text" style="background-image:url('{{ image.image.url }}');background-size:contain;background-repeat:no-repeat;position:sticky;">
+                      <img src="{{image.image.url}}" class="card-img"/>
+                    </a></div>
               </div>
               <div class="iconic ml-2">
                   <!-- <button class="btn btn-sm" type="submit" name="image_id" value="{{image.id}}"> -->
