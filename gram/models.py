@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-# from PIL import Image
 import cloudinary
 from cloudinary.models import CloudinaryField
 
@@ -10,7 +9,7 @@ from cloudinary.models import CloudinaryField
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     profile_picture = CloudinaryField('image')
-    # profile_picture = models.ImageField(upload_to='images/', default='default.png')
+    # profile_picture = models.ImageField(upload_to='images/',default='static/images/default.png')
     bio = models.TextField(max_length=500, default="My Bio", blank=True)
     name = models.CharField(blank=True, max_length=120)
     location = models.CharField(max_length=60, blank=True)
@@ -48,7 +47,7 @@ class Profile(models.Model):
         return cls.objects.filter(user__username__icontains=name).all()
 
 class Post(models.Model):
-    # image = models.ImageField(upload_to='posts/')
+    # image = models.ImageField(upload_to='images/')
     image = CloudinaryField('image')
     name = models.CharField(max_length=250, blank=True)
     caption = models.CharField(max_length=250, blank=True)
